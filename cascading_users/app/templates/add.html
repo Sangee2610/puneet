@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1> USER INFORMATION</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username1.label }}<br>
+            {{ form.username1(size=32) }}<br>
+            {% for error in form.username1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.password1.label }}<br>
+            {{ form.password1(size=32) }}<br>
+            {% for error in form.password1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+         <p>
+            {{ form.username2.label }}<br>
+            {{ form.username2(size=32) }}<br>
+            {% for error in form.username2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        
+        <p>
+            {{ form.password2.label }}<br>
+            {{ form.password2(size=32) }}<br>
+            {% for error in form.password2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+ <a href="{{ url_for('add') }}"> <button>ADD USER</button></a>
+<center>  {{ form.submit() }} </center>
+    </form>
+{% endblock %}
